@@ -1,0 +1,63 @@
+<h1 class="mb-4 text-center"><%= title %></h1>
+<hr>
+
+<% if(login) { %>
+
+<a class="btn btn-primary mb-4" href="/tema/agregar">Agregar tema</a>
+
+<% } %>
+
+    <% if (temas.length == 0) { %>
+
+        <h4 class="text-center text-muted">No hay temas aun... 😅 </h4>
+
+    <% } else { %>
+        
+        <div class="row row-cols-1 row-cols-md-3">
+        
+            <% temas.forEach(tema => { %>
+
+            <div class="col mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        
+                        <% if(login) { %>
+                            <% if(tema.autor.id == user.id) { %>
+        
+                            <form action="/tema/<%= tema._id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger float-right"><i class="fas fa-times"></i></button>
+                            </form>
+        
+                            <% } %>
+                        <% } %>
+                        <%= tema.nombre %>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            
+                        </h5>
+                        <p class="card-text text-justify">
+                            <%= tema.descripcion %>
+                        </p>
+                        <a href="/tema/<%= tema._id %>" class="card-link btn btn-sm btn-primary">Leer mas</a>
+        
+                        <% if(login) { %>
+                            <% if(tema.autor.id == user.id) { %>
+        
+                            <a href="/tema/editar/<%= tema._id %>" class="btn btn-sm btn-link float-right">Editar</a>
+        
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            <i class="fas fa-user"></i> <%= tema.autor.email %>
+                            <br>
+                            <i class="far fa-clock"></i> <%= moment(tema.createdAt).fromNow() %>
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    <% } %>

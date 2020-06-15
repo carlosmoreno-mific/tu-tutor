@@ -1,0 +1,15 @@
+<h1 class="mb-4"><%= title %></h1>
+
+<% if(hasErrors) { %>
+
+<div class="alert alert-danger">
+    <% messages.forEach(function(message) { %>
+    <%= message %>
+    <% }) %>
+</div>
+
+<% } %>
+
+<form action="/tema/<%= tema.id %>?_method=PUT" method="POST" class="mb-4">
+    <%- include('_camposFormulario') %>
+</form>

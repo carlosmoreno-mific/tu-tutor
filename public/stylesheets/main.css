@@ -1,0 +1,43 @@
+body {
+    min-height: 88vh;
+    position: relative;
+    margin: 0;
+    padding-bottom: 75px;
+}
+
+.ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+}
+
+.main {
+    margin: 80px;
+}
+
+.title-container {
+    margin-top: 80px;
+}
+
+.bd-title {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #1085FF;
+    height: 75px;
+    width: 100%;
+}
+
+.footer>.container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.blog-title {
+    font-family: 'Roboto Slab', serif;
+}

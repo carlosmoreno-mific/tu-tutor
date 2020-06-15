@@ -1,0 +1,26 @@
+<h1 class="mb-4 blog-title text-center"><%= title %></h1>
+
+<a href="/tema" class="btn btn-primary">Todos los temas</a>
+<br>
+<br>
+<p class="text-muted mb-2"><i class="far fa-clock">
+    </i> <%= moment(tema.createdAt).format("DD [de] MMMM [de] YYYY") %> por <%= tema.autor.email %>
+</p>
+<hr>
+
+
+
+
+<% if(login) { %>
+    <% if(tema.autor.id == user.id) { %>
+        <a href="/tema/editar/<%= tema._id %> " class="btn btn-link">Editar</a>
+        <form action="/tema/<%= tema._id %>?_method=DELETE" method="POST" class="d-inline">
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+        </form>
+    <% } %>
+<% } %>
+
+
+<div class="mt-4">
+    <%- tema.sanitizedHtml %>
+</div>
