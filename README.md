@@ -1,5 +1,5 @@
 # tu-tutor
 Un blog de temas de calculo usando nodejs usando express y mongodb.
 
-primero ejecuta `npm i` para instalar dependencias
-segundo ejecuta `npm run dev` para ejecutar el servidor
+1. Ejecuta `npm i` para instalar dependencias
+2. Ejecuta `npm run dev` para ejecutar el servidor
